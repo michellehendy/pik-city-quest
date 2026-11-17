@@ -1,0 +1,138 @@
+[
+ {
+  "name": "Express Fun",
+  "description": "Apply your Tourist Exclusive and get a special discount from Express Rental!",
+  "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/tenants/express-fun-discounts/express-rental-logo-1777866665.webp",
+  "benefits": [
+   {
+    "title": "Fun Bots MAB - Discount 20%",
+    "subtitle": "Show your Tourist Exclusive QR Code and enjoy a 20% Discount (Total IDR 80.000 / 30 mins).",
+    "description": "IDR 100.000 / 30 mins (disc 20%) = IDR 80.000 / 30 mins",
+    "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/benefit-tenants/fun-bots/express-rental-logo-1777866853.webp",
+    "amount": "20.00",
+    "type": "Percent(%)",
+    "minOrder": "100000.00"
+   },
+   {
+    "title": "Fun Bots MAZ - Discount 25%",
+    "subtitle": "Show your Tourist Exclusive QR Code and enjoy a 25% Discount (Total IDR 150.000 / 30mins).",
+    "description": "IDR 200.000 / 30 mins (disc 25%) = IDR 150.000 / 30mins",
+    "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/benefit-tenants/fun-bots-maz/express-rental-logo-1777867026.webp",
+    "amount": "25.00",
+    "type": "Percent(%)",
+    "minOrder": "200000.00"
+   },
+   {
+    "title": "Fun Bots MAK - Discount 20%",
+    "subtitle": "Show your Tourist Exclusive QR Code and enjoy a 20% Discount (Total IDR 100.000 / 30 mins).",
+    "description": "IDR 125.000 / 30mins (disc 20%) = IDR 100.000 / 30 mins",
+    "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/benefit-tenants/fun-bots-mak/express-rental-logo-1777867087.webp",
+    "amount": "20.00",
+    "type": "Percent(%)",
+    "minOrder": "125000.00"
+   },
+   {
+    "title": "Rolling Car - Get Free 5 Mins",
+    "subtitle": "Show your Tourist Exclusive QR Code and enjoy an extra 5 mins (Total IDR 150.000 / 15 mins).",
+    "description": "From IDR 150.000 / 10mins to IDR 150.000 / 15 mins",
+    "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/benefit-tenants/rolling-car-get-free-5-mins/whatsapp-image-2026-05-15-at-114011-am-1779270771.webp",
+    "amount": "5.00",
+    "type": "Percent(%)",
+    "minOrder": "150000.00"
+   }
+  ]
+ },
+ {
+  "name": "Animal.inc",
+  "description": "Apply your Tourist Exclusive and get a special discount from Animal.inc!",
+  "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/tenants/animalinc/animal-inc-1777882330.webp",
+  "benefits": [
+   {
+    "title": "Little Explorer & Explorer - Weekdays Discount 10%",
+    "subtitle": "Show your Tourist Exclusive QR Code and enjoy a 10% discount for Little Explorer & Explorer adventures (weekdays only).",
+    "description": "Get a discount 10% for weekdays only (little explorer & the explorer)",
+    "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/benefit-tenants/little-explorer-explorer-discount-10-weekdays-only/animal-inc-1777882497.webp",
+    "amount": "10.00",
+    "type": "Percent(%)",
+    "minOrder": "125000.00"
+   }
+  ]
+ },
+ {
+  "name": "Fish.inc",
+  "description": "Apply your Tourist Exclusive and get a special discount from Fish.inc!",
+  "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/tenants/fishinc/fish-inc-1777881715.webp",
+  "benefits": [
+   {
+    "title": "Indoor Fishing - Weekdays Discount 10%",
+    "subtitle": "Show your Tourist Exclusive QR Code and enjoy a 10% discount for Indoor Fishing (weekdays only).",
+    "description": "Get a special discount 10% at Fish.inc for weekdays only",
+    "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/benefit-tenants/indoor-fishing-discount-10-weekdays-only/fish-inc-1777882238.webp",
+    "amount": "10.00",
+    "type": "Percent(%)",
+    "minOrder": "75000.00"
+   }
+  ]
+ },
+ {
+  "name": "Express Carnival",
+  "description": "Apply your Tourist Exclusive and get a special discount from Express Carnival!",
+  "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/tenants/express-carnival/express-carnival-1777894409.webp",
+  "benefits": [
+   {
+    "title": "Ring Toss - Get Free 5 Rings",
+    "subtitle": "Show your Tourist Exclusive QR Code and enjoy 5 extra rings for free (Total 30 rings per play).",
+    "description": "Ring Toss 25 rings/play (get free 5 rings) = 30 rings/play",
+    "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/benefit-tenants/ring-toss-free-5-rings/ring-toss-1777894967.webp",
+    "amount": "5.00",
+    "type": "Percent(%)",
+    "minOrder": "100000.00"
+   },
+   {
+    "title": "Dinosaur Attack  - Get Free 2 Balls",
+    "subtitle": "Show your Tourist Exclusive QR Code and enjoy 2 extra balls for free (Total 8 balls per play).",
+    "description": "Dinosaur Attack 6 balls/play (get free 2 balls)= 8 balls/play",
+    "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/benefit-tenants/dinosaur-attack-get-free-2-balls/dino-attack-1779269943.webp",
+    "amount": "0.00",
+    "type": "NULL",
+    "minOrder": "0.00"
+   },
+   {
+    "title": "Side Winder - Get Free 7 Seconds",
+    "subtitle": "Show your Tourist Exclusive QR Code and enjoy extra 7 seconds for free (Total 14 balls / 67 secs).",
+    "description": "Side Winder 14 balls/60sec (get free time + 7 secs)= 14 balls / 67 secs",
+    "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/benefit-tenants/side-winder-get-free-7-seconds/side-winder-1779270183.webp",
+    "amount": "0.00",
+    "type": "NULL",
+    "minOrder": "0.00"
+   },
+   {
+    "title": "Hook A Duck - Get Free 10 Points",
+    "subtitle": "Show your Tourist Exclusive QR Code and enjoy bonus 10 Points for free.",
+    "description": "Hook A Duck get score 130-170 = get medium doll (10 points discount) => get score 120 - 170 = get medium doll",
+    "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/benefit-tenants/hook-a-duck-get-free-10-points/hook-a-duck-1779270747.webp",
+    "amount": "0.00",
+    "type": "NULL",
+    "minOrder": "0.00"
+   },
+   {
+    "title": "Tub Toss - Get Free 1 Point",
+    "subtitle": "Show your Tourist Exclusive QR Code and enjoy bonus 1 Point for free.",
+    "description": "Tub Toss 2 balls in = medium doll (get free 1 point) => 1 ball in = medium doll",
+    "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/benefit-tenants/tub-toss-get-free-1-point/tub-toss-1779273110.webp",
+    "amount": "0.00",
+    "type": "NULL",
+    "minOrder": "0.00"
+   },
+   {
+    "title": "Dart Balloon - From 6 to 4",
+    "subtitle": "Show your Tourist Exclusive QR Code and enjoy special minimum score.",
+    "description": "Dart Balloon 6 popped = medium doll (min score change to 2) => 4 popped = medium doll",
+    "photo": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/benefit-tenants/dart-balloon-from-6-to-4/dart-balloon-1779273358.webp",
+    "amount": "0.00",
+    "type": "NULL",
+    "minOrder": "0.00"
+   }
+  ]
+ }
+]

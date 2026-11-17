@@ -1,0 +1,673 @@
+// PIK CITY QUEST – relational schema
+// SQLite is used for local/demo; switch provider to "postgresql" for production
+// (all types below are portable – enums are modelled as String constants in src/lib/constants.ts).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ───────────────────────── Users & Auth ─────────────────────────
+
+model User {
+  id               String   @id @default(cuid())
+  email            String   @unique
+  passwordHash     String?
+  googleId         String?  @unique
+  name             String
+  username         String   @unique
+  avatarUrl        String?
+  instagram        String?
+  dateOfBirth      DateTime?
+  role             String   @default("VISITOR") // VISITOR | SUPER_ADMIN | QUEST_MANAGER | VERIFICATION_ADMIN | PARTNER_ADMIN
+  partnerId        String?
+  partner          Partner? @relation(fields: [partnerId], references: [id])
+  xpTotal          Int      @default(0)
+  pointsBalance    Int      @default(0) // redeemable balance, kept separate from XP
+  streakDays       Int      @default(0)
+  lastActiveDate   String?  // YYYY-MM-DD
+  emailVerifiedAt  DateTime?
+  isActive         Boolean  @default(true)
+  publicProfile    Boolean  @default(true)
+  language         String   @default("en")
+  notifPrefs       String   @default("{}") // JSON
+  sharePrefs       String   @default("{}") // JSON
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  lastLoginAt      DateTime?
+
+  sessions          Session[]
+  resetTokens       PasswordResetToken[]
+  verifyTokens      EmailVerificationToken[]
+  questRuns         QuestRun[]
+  submissions       MissionSubmission[]
+  reviewed          MissionSubmission[] @relation("Reviewer")
+  xpTransactions    XpTransaction[]
+  badges            UserBadge[]
+  rewards           UserReward[]
+  redemptionsDone   RewardRedemption[] @relation("RedeemedBy")
+  notifications     Notification[]
+  qrScans           QrScan[]
+  auditLogs         AuditLog[]
+  chatMessages      ChatMessage[]
+  uploads           MediaUpload[]
+  stories           Story[]
+  challenges        UserChallenge[]
+  createdQuests     Quest[] @relation("QuestCreator")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String   @unique
+  userAgent String?
+  ip        String?
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  revokedAt DateTime?
+  @@index([userId])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+}
+
+model EmailVerificationToken {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+}
+
+// ───────────────────────── Levels & XP config ─────────────────────────
+
+model Level {
+  id          String @id @default(cuid())
+  order       Int    @unique
+  name        String // BEGINNER, EXPLORER, TRAVELER, PIK ENTHUSIAST, PIK LEGEND
+  minXp       Int
+  icon        String // emoji / icon key
+  color       String
+  description String?
+}
+
+model XpRule {
+  key         String @id   // e.g. CHECKPOINT_BONUS, QUEST_COMPLETE_DEFAULT, NEW_DESTINATION, BADGE_EARNED, STREAK_DAY
+  label       String
+  amount      Int
+  description String?
+}
+
+model Setting {
+  key   String @id
+  value String // JSON
+}
+
+// ───────────────────────── Places ─────────────────────────
+
+model Area {
+  id          String @id @default(cuid())
+  slug        String @unique // pik1, golf-island, riverwalk-island, pik2
+  name        String
+  description String?
+  color       String
+  centerLat   Float
+  centerLng   Float
+  zoom        Int    @default(15)
+  sortOrder   Int    @default(0)
+  destinations Destination[]
+}
+
+model Partner {
+  id          String  @id @default(cuid())
+  name        String
+  logoUrl     String?
+  description String?
+  contact     String?
+  isActive    Boolean @default(true)
+  createdAt   DateTime @default(now())
+  users        User[]
+  destinations Destination[]
+  rewards      Reward[]
+  redemptions  RewardRedemption[]
+}
+
+model Destination {
+  id              String  @id @default(cuid())
+  externalId      Int?    @unique // piktourism.com place id, when imported
+  slug            String  @unique
+  name            String
+  description     String
+  longDescription String?
+  category        String  // primary category (Main Destinations, Culinary, …)
+  categories      String  @default("[]") // JSON array
+  tags            String  @default("[]") // JSON array: pet-friendly, halal, family, sunset …
+  areaId          String
+  area            Area    @relation(fields: [areaId], references: [id])
+  address         String?
+  lat             Float
+  lng             Float
+  coverImage      String?
+  gallery         String  @default("[]") // JSON array of urls
+  openingHours    String?
+  phone           String?
+  websiteUrl      String?
+  gmapUrl         String?
+  gpsRadiusM      Int     @default(100)
+  partnerId       String?
+  partner         Partner? @relation(fields: [partnerId], references: [id])
+  isActive        Boolean @default(true)
+  isSample        Boolean @default(false) // clearly labelled sample data
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  checkpoints  QuestCheckpoint[]
+  missions     Mission[]
+  qrCodes      QrCode[]
+  events       Event[]
+  badges       Badge[]
+  challenges   Challenge[]
+  @@index([areaId])
+  @@index([category])
+}
+
+model Facility {
+  id           String  @id @default(cuid())
+  name         String
+  type         String  // Charging Station, Hospital, Clinic, Money Changer, Religious Sites, Bus Stop, Toilet …
+  address      String?
+  lat          Float?
+  lng          Float?
+  phone        String?
+  openingHours String?
+  imageUrl     String?
+  gmapUrl      String?
+}
+
+model TransportRoute {
+  id        String @id @default(cuid())
+  operator  String // Transjakarta, Royal Trans, Hub Connector, TREX, Shuttle, Ferry
+  code      String
+  name      String
+  category  String // Getting Here | Getting Around | Sea
+  color     String
+  imageUrl  String?
+  notes     String?
+  polyline  String  @default("[]") // JSON [[lat,lng],…] sample geometry, editable
+  isActive  Boolean @default(true)
+  stops     TransportStop[]
+}
+
+model TransportStop {
+  id       String @id @default(cuid())
+  routeId  String
+  route    TransportRoute @relation(fields: [routeId], references: [id], onDelete: Cascade)
+  name     String
+  lat      Float
+  lng      Float
+  order    Int
+  @@index([routeId])
+}
+
+model Event {
+  id            String  @id @default(cuid())
+  externalId    Int?    @unique
+  title         String
+  category      String
+  startDate     DateTime
+  endDate       DateTime
+  startTime     String?
+  endTime       String?
+  location      String?
+  destinationId String?
+  destination   Destination? @relation(fields: [destinationId], references: [id])
+  excerpt       String?
+  description   String?
+  imageUrl      String?
+  url           String?
+  isActive      Boolean @default(true)
+  badges        Badge[]
+}
+
+// ───────────────────────── Quests ─────────────────────────
+
+model Quest {
+  id               String   @id @default(cuid())
+  slug             String   @unique
+  name             String
+  tagline          String?
+  description      String
+  coverImage       String?
+  type             String   @default("REGULAR") // SPECIAL | REGULAR
+  difficulty       String   @default("EASY")    // EASY | MEDIUM | HARD | EXPERT
+  durationMinutes  Int      @default(120)
+  status           String   @default("DRAFT")   // DRAFT | PUBLISHED | ARCHIVED
+  startsAt         DateTime?
+  endsAt           DateTime?
+  completionRule   String   @default("SEQUENTIAL") // SEQUENTIAL | OPEN | MINIMUM | CUSTOM
+  minCheckpoints   Int?
+  unlockConditions String   @default("{}") // JSON: {requiresQuestId, requiresBadgeId, requiresLevel, requiresEventId}
+  rules            String?  // human readable rules shown before start
+  completionXp     Int      @default(200)
+  bonusXp          Int      @default(0)
+  areas            String   @default("[]") // JSON array of area slugs
+  isFeatured       Boolean  @default(false)
+  sortOrder        Int      @default(0)
+  createdById      String?
+  createdBy        User?    @relation("QuestCreator", fields: [createdById], references: [id])
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  archivedAt       DateTime?
+
+  checkpoints QuestCheckpoint[]
+  runs        QuestRun[]
+  rewards     Reward[]
+  badges      Badge[]
+  @@index([status])
+}
+
+model QuestCheckpoint {
+  id            String  @id @default(cuid())
+  questId       String
+  quest         Quest   @relation(fields: [questId], references: [id], onDelete: Cascade)
+  destinationId String
+  destination   Destination @relation(fields: [destinationId], references: [id])
+  order         Int
+  title         String?
+  intro         String?
+  isStart       Boolean @default(false)
+  isEnd         Boolean @default(false)
+  missions      CheckpointMission[]
+  progress      CheckpointProgress[]
+  submissions   MissionSubmission[]
+  @@unique([questId, order])
+  @@index([destinationId])
+}
+
+// ───────────────────────── Missions ─────────────────────────
+
+model Mission {
+  id             String  @id @default(cuid())
+  name           String
+  description    String
+  instructions   String
+  type           String  // PHOTO | QR | GPS | QUIZ | CODE | VIDEO | MULTI | SOCIAL | EVENT_CHECKIN | FIND_OBJECT | TRIVIA | COLLECT | TIMED | TEAM
+  destinationId  String?
+  destination    Destination? @relation(fields: [destinationId], references: [id])
+  difficulty     String  @default("EASY")
+  xp             Int     @default(50)
+  verification   String  @default("AUTO") // AUTO | MANUAL
+  stepsOrdered   Boolean @default(true)   // for MULTI: must steps be done in order
+  maxAttempts    Int?
+  timeLimitSec   Int?
+  isActive       Boolean @default(true)
+  isReusable     Boolean @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  requirements MissionRequirement[]
+  checkpoints  CheckpointMission[]
+  submissions  MissionSubmission[]
+  qrCodes      QrCode[]
+  challenges   Challenge[]
+  @@index([destinationId])
+}
+
+model MissionRequirement {
+  id          String  @id @default(cuid())
+  missionId   String
+  mission     Mission @relation(fields: [missionId], references: [id], onDelete: Cascade)
+  order       Int
+  type        String  // PHOTO | QR | GPS | QUIZ | CODE | VIDEO | SOCIAL | EVENT_CHECKIN | …
+  label       String?
+  config      String  @default("{}") // JSON – quiz questions, secret code, radius, expiry, maxAttempts, timer, file limits…
+  isMandatory Boolean @default(true)
+  submissions RequirementSubmission[]
+  @@index([missionId])
+}
+
+model CheckpointMission {
+  id           String  @id @default(cuid())
+  checkpointId String
+  checkpoint   QuestCheckpoint @relation(fields: [checkpointId], references: [id], onDelete: Cascade)
+  missionId    String
+  mission      Mission @relation(fields: [missionId], references: [id])
+  order        Int     @default(0)
+  isMandatory  Boolean @default(true)
+  xpOverride   Int?
+  @@unique([checkpointId, missionId])
+}
+
+// ───────────────────────── Progress ─────────────────────────
+
+model QuestRun {
+  id                  String   @id @default(cuid())
+  userId              String
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questId             String
+  quest               Quest    @relation(fields: [questId], references: [id])
+  status              String   @default("ACTIVE") // ACTIVE | COMPLETED | ABANDONED
+  startedAt           DateTime @default(now())
+  completedAt         DateTime?
+  xpEarned            Int      @default(0)
+  completionCode      String?  @unique
+  completionBadgeId   String?
+  checkpoints         CheckpointProgress[]
+  submissions         MissionSubmission[]
+  @@index([userId, status])
+  @@index([questId])
+}
+
+model CheckpointProgress {
+  id             String   @id @default(cuid())
+  questRunId     String
+  questRun       QuestRun @relation(fields: [questRunId], references: [id], onDelete: Cascade)
+  checkpointId   String
+  checkpoint     QuestCheckpoint @relation(fields: [checkpointId], references: [id], onDelete: Cascade)
+  status         String   @default("LOCKED") // LOCKED | AVAILABLE | IN_PROGRESS | SUBMITTED | COMPLETED
+  unlockedAt     DateTime?
+  completedAt    DateTime?
+  stampIssuedAt  DateTime?
+  @@unique([questRunId, checkpointId])
+}
+
+model MissionSubmission {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questRunId      String?
+  questRun        QuestRun? @relation(fields: [questRunId], references: [id], onDelete: Cascade)
+  checkpointId    String?
+  checkpoint      QuestCheckpoint? @relation(fields: [checkpointId], references: [id], onDelete: Cascade)
+  missionId       String
+  mission         Mission  @relation(fields: [missionId], references: [id])
+  status          String   @default("IN_PROGRESS") // NOT_STARTED | IN_PROGRESS | SUBMITTED | UNDER_REVIEW | APPROVED | REJECTED
+  attempts        Int      @default(0)
+  startedAt       DateTime @default(now())
+  submittedAt     DateTime?
+  reviewedAt      DateTime?
+  reviewedById    String?
+  reviewedBy      User?    @relation("Reviewer", fields: [reviewedById], references: [id])
+  rejectionReason String?
+  xpAwarded       Int      @default(0)
+  xpAwardedAt     DateTime?
+  lat             Float?
+  lng             Float?
+  accuracyM       Float?
+  requirements    RequirementSubmission[]
+  @@index([userId, missionId])
+  @@index([status])
+}
+
+model RequirementSubmission {
+  id              String   @id @default(cuid())
+  submissionId    String
+  submission      MissionSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  requirementId   String
+  requirement     MissionRequirement @relation(fields: [requirementId], references: [id], onDelete: Cascade)
+  status          String   @default("PENDING") // PENDING | SUBMITTED | APPROVED | REJECTED
+  attempts        Int      @default(0)
+  payload         String   @default("{}") // JSON: answers, code, qr token id, media url, gps …
+  mediaUrl        String?
+  verifiedAt      DateTime?
+  rejectionReason String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  @@unique([submissionId, requirementId])
+}
+
+// ───────────────────────── Gamification ─────────────────────────
+
+model XpTransaction {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount      Int
+  kind        String   // MISSION | CHECKPOINT | QUEST | BADGE | NEW_DESTINATION | CHALLENGE | STREAK | EVENT | ADJUSTMENT
+  refType     String?  // MissionSubmission | QuestRun | Badge | Challenge …
+  refId       String?
+  description String
+  createdAt   DateTime @default(now())
+  @@unique([userId, kind, refType, refId])
+  @@index([userId, createdAt])
+  @@index([createdAt])
+}
+
+model Badge {
+  id                   String  @id @default(cuid())
+  slug                 String  @unique
+  name                 String
+  description          String
+  category             String  // DESTINATION | AREA | TRANSPORT | EVENT | EXPERIENCE | QUEST | LEVEL
+  rarity               String  @default("COMMON") // COMMON | RARE | EPIC | LEGENDARY
+  icon                 String  // emoji or icon key
+  color                String  @default("#087088")
+  imageUrl             String?
+  criteria             String  @default("{}") // JSON { type: DESTINATION_VISIT|AREA_VISITS|QUEST_COMPLETE|MISSION_COUNT|CATEGORY_VISITS|TAG_VISITS|TRANSPORT|EVENT_CHECKIN|MANUAL, … }
+  xpBonus              Int     @default(25)
+  isActive             Boolean @default(true)
+  sortOrder            Int     @default(0)
+  relatedDestinationId String?
+  relatedDestination   Destination? @relation(fields: [relatedDestinationId], references: [id])
+  relatedQuestId       String?
+  relatedQuest         Quest? @relation(fields: [relatedQuestId], references: [id])
+  relatedEventId       String?
+  relatedEvent         Event? @relation(fields: [relatedEventId], references: [id])
+  users                UserBadge[]
+  rewards              Reward[]
+}
+
+model UserBadge {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  badgeId   String
+  badge     Badge    @relation(fields: [badgeId], references: [id])
+  earnedAt  DateTime @default(now())
+  context   String?  // JSON
+  @@unique([userId, badgeId])
+}
+
+model Challenge {
+  id            String   @id @default(cuid())
+  title         String
+  description   String
+  cadence       String   // DAILY | WEEKLY | LIMITED | BONUS | STREAK | SOCIAL
+  missionId     String?
+  mission       Mission? @relation(fields: [missionId], references: [id])
+  destinationId String?
+  destination   Destination? @relation(fields: [destinationId], references: [id])
+  difficulty    String   @default("EASY")
+  xp            Int      @default(30)
+  startsAt      DateTime?
+  endsAt        DateTime?
+  isActive      Boolean  @default(true)
+  mysteryReward Boolean  @default(false)
+  users         UserChallenge[]
+}
+
+model UserChallenge {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  challengeId String
+  challenge   Challenge @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+  periodKey   String   // e.g. 2026-11-13 or 2026-W46
+  status      String   @default("IN_PROGRESS") // IN_PROGRESS | COMPLETED
+  completedAt DateTime?
+  @@unique([userId, challengeId, periodKey])
+}
+
+// ───────────────────────── Rewards ─────────────────────────
+
+model Reward {
+  id            String   @id @default(cuid())
+  name          String
+  partnerId     String?
+  partner       Partner? @relation(fields: [partnerId], references: [id])
+  partnerName   String
+  description   String
+  imageUrl      String?
+  type          String   @default("DISCOUNT") // DISCOUNT | MERCHANDISE | DINING | TICKET | PARTNER | EXPERIENCE | DIGITAL
+  terms         String?
+  instructions  String?
+  voucherPrefix String   @default("PIK")
+  validDays     Int      @default(30)
+  expiresAt     DateTime?
+  totalLimit    Int?
+  perUserLimit  Int      @default(1)
+  pointsCost    Int?     // when redeemable with points
+  issuance      String   @default("QUEST_COMPLETION") // QUEST_COMPLETION | BADGE | POINTS | CAMPAIGN | TOURIST_EXCLUSIVE
+  questId       String?
+  quest         Quest?   @relation(fields: [questId], references: [id])
+  badgeId       String?
+  badge         Badge?   @relation(fields: [badgeId], references: [id])
+  isActive      Boolean  @default(true)
+  isSample      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  userRewards   UserReward[]
+}
+
+model UserReward {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rewardId     String
+  reward       Reward   @relation(fields: [rewardId], references: [id])
+  voucherCode  String   @unique
+  qrToken      String   @unique
+  status       String   @default("AVAILABLE") // AVAILABLE | REDEEMED | EXPIRED
+  source       String   // QUEST_COMPLETION | BADGE | POINTS | CAMPAIGN
+  sourceRefId  String?
+  issuedAt     DateTime @default(now())
+  expiresAt    DateTime
+  redeemedAt   DateTime?
+  redemption   RewardRedemption?
+  @@unique([userId, rewardId, sourceRefId])
+  @@index([userId, status])
+}
+
+model RewardRedemption {
+  id            String   @id @default(cuid())
+  userRewardId  String   @unique
+  userReward    UserReward @relation(fields: [userRewardId], references: [id], onDelete: Cascade)
+  redeemedById  String
+  redeemedBy    User     @relation("RedeemedBy", fields: [redeemedById], references: [id])
+  partnerId     String?
+  partner       Partner? @relation(fields: [partnerId], references: [id])
+  location      String?
+  createdAt     DateTime @default(now())
+}
+
+// ───────────────────────── QR codes ─────────────────────────
+
+model QrCode {
+  id            String   @id @default(cuid())
+  token         String   @unique // random, never exposes internal ids
+  label         String
+  kind          String   // CHECKPOINT | DESTINATION | MISSION
+  destinationId String?
+  destination   Destination? @relation(fields: [destinationId], references: [id])
+  missionId     String?
+  mission       Mission? @relation(fields: [missionId], references: [id])
+  isActive      Boolean  @default(true)
+  expiresAt     DateTime?
+  rotatedAt     DateTime?
+  createdAt     DateTime @default(now())
+  scans         QrScan[]
+}
+
+model QrScan {
+  id        String   @id @default(cuid())
+  qrCodeId  String?
+  qrCode    QrCode?  @relation(fields: [qrCodeId], references: [id], onDelete: SetNull)
+  rawToken  String?
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  success   Boolean
+  reason    String?
+  lat       Float?
+  lng       Float?
+  createdAt DateTime @default(now())
+  @@index([qrCodeId, createdAt])
+}
+
+// ───────────────────────── Notifications / Chat / Media ─────────────────────────
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String   // MISSION_UNLOCKED | MISSION_COMPLETED | MISSION_REJECTED | QUEST_COMPLETE | BADGE | REWARD | SPECIAL_QUEST | SYSTEM
+  title     String
+  body      String
+  link      String?
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  @@index([userId, isRead])
+}
+
+model ChatMessage {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role      String   // user | assistant
+  content   String
+  meta      String   @default("{}") // JSON: destination cards, mode
+  createdAt DateTime @default(now())
+  @@index([userId, createdAt])
+}
+
+model MediaUpload {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  path      String
+  mime      String
+  size      Int
+  kind      String   // PHOTO | VIDEO | AVATAR | STORY
+  caption   String?
+  lat       Float?
+  lng       Float?
+  createdAt DateTime @default(now())
+  @@index([userId])
+}
+
+model Story {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  items     String   @default("[]") // JSON ordered list of {type, url, caption, destination}
+  isPublic  Boolean  @default(false)
+  shareCode String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String?
+  actor     User?    @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  action    String
+  entity    String
+  entityId  String?
+  meta      String   @default("{}")
+  ip        String?
+  createdAt DateTime @default(now())
+  @@index([createdAt])
+}

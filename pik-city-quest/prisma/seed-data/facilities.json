@@ -1,0 +1,333 @@
+[
+ {
+  "name": "Aloha PIK2",
+  "type": "Charging Station",
+  "address": "Jl. Laksamana Yos Sudarso PIK 2, Dadap, Kec. Kosambi, Kabupaten Tangerang, Banten 15213",
+  "gmapUrl": "https://maps.app.goo.gl/8TK6fdR1J7Lfgyi28",
+  "phone": "081188080823",
+  "openingHours": "Weekdays: 10.00-00.00, Sat: 07.00-00.00, Sun: 07.00-22.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1783/image/aloha-cs-1788521114.webp",
+  "lat": -6.0718317,
+  "lng": 106.7150573
+ },
+ {
+  "name": "ASG Tower",
+  "type": "Charging Station",
+  "address": "Jl boulevard Jl. Pantai Indah Kapuk No.6, RT.2/RW.2, Kamal Muara, Kecamatan Penjaringan, Jkt Utara, Daerah Khusus Ibukota Jakarta 14470",
+  "gmapUrl": "https://maps.app.goo.gl/h9UH3uWvKEYFTKLK6",
+  "phone": "08112312404",
+  "openingHours": "24 hours",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1782/image/agung-sedayu-tower-1788521032.webp",
+  "lat": -6.1104405,
+  "lng": 106.7395314
+ },
+ {
+  "name": "Batavia PIK",
+  "type": "Charging Station",
+  "address": "Batavia PIK Phase 2, Kawasan Pantai Maju, Kamal Muara, Kecamatan Penjaringan, Jkt Utara, Daerah Khusus Ibukota Jakarta 14470",
+  "gmapUrl": "https://maps.app.goo.gl/7DBJDfnJfrzKP6Ag8",
+  "phone": "-",
+  "openingHours": "Weekdays: 11.00-22.00, Weekend: 11.00-23.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1781/image/batavia-pik-cs-1788520824.webp",
+  "lat": -6.0934785,
+  "lng": 106.7395925
+ },
+ {
+  "name": "Pantjoran PIK",
+  "type": "Charging Station",
+  "address": "Pantjoran PIK, Daerah Khusus Ibukota Jakarta 14460",
+  "gmapUrl": "https://maps.app.goo.gl/k4FYAWcKYsgKBgaW6",
+  "phone": "-",
+  "openingHours": "24 hours",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1780/image/logo-pantjoran-1788520716.webp",
+  "lat": -6.0905524,
+  "lng": 106.7444756
+ },
+ {
+  "name": "Black Owl, Pantjoran PIK",
+  "type": "Charging Station",
+  "address": "Golf Island Beach Theme Park, Jl. Pantai Indah Kapuk No.77, Kamal Muara, DKI Jakarta 14470",
+  "gmapUrl": "https://maps.app.goo.gl/pgwUXUNecAVRLFiz5",
+  "phone": "-",
+  "openingHours": "24 hours",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1779/image/black-owl-cs-1788520666.webp",
+  "lat": -6.0904009,
+  "lng": 106.7452569
+ },
+ {
+  "name": "By The Sea PIK",
+  "type": "Charging Station",
+  "address": "Jl. Golf Island Timur, Kamal Muara, Daerah Khusus Ibukota Jakarta 14470",
+  "gmapUrl": "https://maps.app.goo.gl/pgU3B1TPs5mwHRb77",
+  "phone": "085693855748",
+  "openingHours": "Mon-Thu: 10.00-22.00, Fri-Sun: 10.00-23.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1778/image/by-the-sea-cs-1788520557.webp",
+  "lat": -6.0933144,
+  "lng": 106.7505158
+ },
+ {
+  "name": "Centre Point PIK2",
+  "type": "Charging Station",
+  "address": "Jl. M.H. Thamrin, Salembaran, Kec. Kosambi, Kabupaten Tangerang, Banten 15214",
+  "gmapUrl": "https://maps.app.goo.gl/J8mnSrinDWwBk8n86",
+  "phone": "-",
+  "openingHours": "24 hours",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1777/image/logo-centre-point-1788520438.webp",
+  "lat": -6.0494205,
+  "lng": 106.6955046
+ },
+ {
+  "name": "Central Market PIK",
+  "type": "Charging Station",
+  "address": "Golf Island, Kawasan Pantai Maju, Jl, Jl. Boulevard Raya, Kamal Muara, Kecamatan Penjaringan, Daerah Khusus Ibukota Jakarta 14470",
+  "gmapUrl": "https://maps.app.goo.gl/FFxZEN4ixZYYi7rt7",
+  "phone": "-",
+  "openingHours": "Everyday: 08.00-22.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1776/image/central-market-cs-1788519822.webp",
+  "lat": -6.09093,
+  "lng": 106.7456562
+ },
+ {
+  "name": "Tabernacle Family (Gereja Kemah Tabernakel)",
+  "type": "Charging Station",
+  "address": "Jl. Rasuna Said No.06B Blok BB 06A, PIK2, Kosambi, Tangerang Regency, Banten 15214",
+  "gmapUrl": "https://maps.app.goo.gl/FNYsMd1s6p4njJGT7",
+  "phone": "-",
+  "openingHours": "Tue, Fri: 07.30-21.00, Sun: 09.00-13.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1775/image/logo-gereja-kemah-tabernakel-1788519696.webp",
+  "lat": -6.0467385,
+  "lng": 106.7037249
+ },
+ {
+  "name": "Indonesia Design District (IDD) PIK2",
+  "type": "Charging Station",
+  "address": "Jalan M.H. Thamrin. Kel. Salembaran Jaya Kec. Kosambi, Salembaran, Tangerang, Kabupaten Tangerang, Banten 15214",
+  "gmapUrl": "https://maps.app.goo.gl/FNN4fZokHUTfd3La8",
+  "phone": "-",
+  "openingHours": "Mon-Thu: 11.00-20.00, Fri-Sun: 10.00-22.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1774/image/logo-idd-1788519560.webp",
+  "lat": -6.0491217,
+  "lng": 106.7027144
+ },
+ {
+  "name": "Kota Belanda PIK2 (La Riviera)",
+  "type": "Charging Station",
+  "address": "Banten, Tangerang Regency, Teluknaga, Salembaran, Kosambi, Tangerang Regency, Banten 15510",
+  "gmapUrl": "https://maps.app.goo.gl/J8VD2yf2S6PUXA7b9",
+  "phone": "0215888000",
+  "openingHours": "24 hours",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1773/image/logo-kota-belanda-1788519334.webp",
+  "lat": -6.0437038,
+  "lng": 106.6931053
+ },
+ {
+  "name": "Land's End PIK2",
+  "type": "Charging Station",
+  "address": "Jl. Yos Sudarso, Pasir Putih, Kabupaten Tangerang, Banten, Jakarta, Jawa Barat 15211",
+  "gmapUrl": "https://maps.app.goo.gl/KbeQ1r9ewA1xsmmQA",
+  "phone": "-",
+  "openingHours": "08.00-23.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1772/image/logo-lands-end-1788511255.webp",
+  "lat": -6.0822801,
+  "lng": 106.7222859
+ },
+ {
+  "name": "Osaka Hotel PIK2",
+  "type": "Charging Station",
+  "address": "Jl. Raya Boulevard Osaka PIK 2, Salembaran, Kec. Kosambi, Kabupaten Tangerang, Banten 15214",
+  "gmapUrl": "https://maps.app.goo.gl/F64LMuxq1ebGiZuD7",
+  "phone": "02139739709",
+  "openingHours": "24 hours",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1770/image/osaka-cs-1788511036.webp",
+  "lat": -6.0571535,
+  "lng": 106.6788866
+ },
+ {
+  "name": "PIK Avenue",
+  "type": "Charging Station",
+  "address": "Pantai Indah Kapuk St Boulevard, RT.6/RW.2, Kamal Muara, Penjaringan, North Jakarta City, Jakarta 14470",
+  "gmapUrl": "https://maps.app.goo.gl/scpKjwUWwzGYWoc76",
+  "phone": "(021) 22570999",
+  "openingHours": "Everyday: 10.00-22.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1769/image/pik-avenue-cs-1788510992.webp",
+  "lat": -6.1088281,
+  "lng": 106.74021
+ },
+ {
+  "name": "PIK Avenue (Lexus)",
+  "type": "Charging Station",
+  "address": "Pantai Indah Kapuk St Boulevard, RT.6/RW.2, Kamal Muara, Penjaringan, North Jakarta City, Jakarta 14470",
+  "gmapUrl": "https://maps.app.goo.gl/scpKjwUWwzGYWoc76",
+  "phone": "(021) 22570999",
+  "openingHours": "Everyday: 10.00-22.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1768/image/pik-avenue-lexus-cs-1788510949.webp",
+  "lat": -6.1088281,
+  "lng": 106.74021
+ },
+ {
+  "name": "Tokyo Hub & Apartment",
+  "type": "Charging Station",
+  "address": "Jl. Pantai Indah Kapuk No.7, RT.7/RW.2, Kamal Muara, Kec. Teluknaga, Jkt Utara, Daerah Khusus Ibukota Jakarta 15510",
+  "gmapUrl": "https://maps.app.goo.gl/fgzPjnYr9Bsn2WGs7",
+  "phone": "-",
+  "openingHours": "Everyday: 09.00-22.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1767/image/logo-tokyohub-1788510899.webp",
+  "lat": -6.0408594,
+  "lng": 106.6916774
+ },
+ {
+  "name": "Orange Groves PIK2",
+  "type": "Charging Station",
+  "address": "Orange Groves PIK2, Jl. KH Mas Mansyur Unit 21, Salembaran, Kec. Kosambi, Kabupaten Tangerang, Banten 15214",
+  "gmapUrl": "https://maps.app.goo.gl/D82Pz3G856fgSgE6A",
+  "phone": "-",
+  "openingHours": "Everyday: 10.00-22.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1771/image/orange-groves-cs-1788519465.webp",
+  "lat": -6.0595146,
+  "lng": 106.6926651
+ },
+ {
+  "name": "Tian Fu Gong (天福宫)",
+  "type": "Religious Sites",
+  "address": "Komplek Simpang Empat Riverwalk Island, Pantai Indah Kapuk (PIK)",
+  "gmapUrl": null,
+  "phone": null,
+  "openingHours": "Everyday: 09.00-17.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1530/image/tian-fu-gong-1777543200.webp"
+ },
+ {
+  "name": "Si Mian Fo",
+  "type": "Religious Sites",
+  "address": "Riverwalk Island, Jl. Simpang Empat Gate 5 Pantai Indah Kapuk St, 14470",
+  "gmapUrl": null,
+  "phone": "0822-2888-5740",
+  "openingHours": "Everyday: 07.00-22.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1529/image/si-mian-fo-pik-1-1777540332.webp"
+ },
+ {
+  "name": "Taman Doa Hati Tersuci Maria",
+  "type": "Religious Sites",
+  "address": "La Riviera (Kota Belanda) area, Pantai Indah Kapuk 2 (PIK 2), Kecamatan Kosambi, Kabupaten Tangerang, Banten",
+  "gmapUrl": null,
+  "phone": null,
+  "openingHours": "Everyday: 07.00-22.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1528/image/taman-doa-hati-tersuci-maria-2-1777539430.webp"
+ },
+ {
+  "name": "Taman Doa Our Lady of Akita",
+  "type": "Religious Sites",
+  "address": "Osaka Area, PIK 2, Salembaran, Kec. Kosambi, Kabupaten Tangerang, Banten",
+  "gmapUrl": null,
+  "phone": "0812-9256-1667",
+  "openingHours": "Weekday: 10.00AM-10.00PM, Weekend: 09.00AM-10.00PM",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1527/image/taman-doa-lady-of-akita-1777539300.webp"
+ },
+ {
+  "name": "Al-Khairiyah Mosque at Menara Syariah PIK 2",
+  "type": "Religious Sites",
+  "address": "Lantai 5 Gedung Menara Syariah PIK2, Kawasan Islamic Financial Center, CBDP 2, Pantai Indah Kapuk 2, Tangerang, Banten 15213",
+  "gmapUrl": null,
+  "phone": null,
+  "openingHours": "Everyday: 00.00-06.00, 08.00-00.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1526/image/masjid-al-khairiyah-menara-syariah-pik-2-1777539008.webp"
+ },
+ {
+  "name": "Al Ikhlas Mosque PIK",
+  "type": "Religious Sites",
+  "address": "Riverwalk Island Jl. Simpang Empat Gate 5, Kamal Muara, North Jakarta City, Jakarta 14460",
+  "gmapUrl": null,
+  "phone": null,
+  "openingHours": "24 hours",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1525/image/al-ikhlas-3-2-1777524423.webp"
+ },
+ {
+  "name": "Rumah Sakit Hermina PIK2",
+  "type": "Hospital",
+  "address": "Jl. Raya Boulevard Osaka, Salembaran, Kosambi, Tangerang Regency, Banten 15214",
+  "gmapUrl": null,
+  "phone": "1500-488",
+  "openingHours": "24 hours",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1515/image/rs-hermina-pik2-1777451156.webp"
+ },
+ {
+  "name": "Rumah Sakit Pantai Indah Kapuk (RS PIK)",
+  "type": "Hospital",
+  "address": "Komplek Pantai Indah Kapuk, Jl. Pantai Indah Utara 3, Kapuk Muara, Kecamatan Penjaringan, Jkt Utara, Daerah Khusus Ibukota Jakarta 14460",
+  "gmapUrl": null,
+  "phone": "021-5880911",
+  "openingHours": "24 hours",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1514/image/rs-pantai-indah-kapuk-pik-1777450929.webp"
+ },
+ {
+  "name": "Tzu Chi Hospital PIK",
+  "type": "Hospital",
+  "address": "Pantai Indah Kapuk St, RT.6/RW.2, Kamal Muara, Penjaringan, North Jakarta City, Jakarta 14470",
+  "gmapUrl": null,
+  "phone": "021-5095-0888",
+  "openingHours": "24 hours",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1513/image/tzu-chi-hospital-pik-1777450818.webp"
+ },
+ {
+  "name": "Fortuna Money Changer PIK",
+  "type": "Money Changer",
+  "address": "Ruko Ebony Boulevard SEB 003, Ebony Island, Pantai Indah Kapuk, Jl. Laksamana Yos Sudarso Lantai 1, Kecamatan Penjaringan, Daerah Khusus Ibukota Jakarta 14470",
+  "gmapUrl": null,
+  "phone": "021-50322006",
+  "openingHours": "Mon-Fri: 09.00-17.30",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1522/image/fortuna-money-changer-pik-1777458952.webp"
+ },
+ {
+  "name": "VLife Medical & Wellness",
+  "type": "Clinic",
+  "address": "Vlife Medical PIK Avenue, Jl. Pantai Indah Kapuk Boulevard, No C1, lantai 6, RT.6/RW.2, Kamal Muara, Kecamatan Penjaringan, Jkt Utara, Daerah Khusus Ibukota Jakarta 14470",
+  "gmapUrl": null,
+  "phone": "081997070899",
+  "openingHours": "Everyday: 10.00-21.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1517/image/vlife-medical-wellness-pik-avenue-1777452298.webp"
+ },
+ {
+  "name": "Money Changer PIK RMM",
+  "type": "Money Changer",
+  "address": "Rukan La Raviera Blok RLBA No 30, PIK, Money Changer, Pantai Indah Kapuk, RW.2, Lemo, Kec. Teluknaga, Kabupaten Tangerang, Banten 15510",
+  "gmapUrl": null,
+  "phone": "0821-2587-5718",
+  "openingHours": "Weekdays: 08.00-20.00, Weekend: 09.00-20.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1523/image/money-changer-pik-rmm-1777459232.webp"
+ },
+ {
+  "name": "Baiili Money Changer PIK",
+  "type": "Money Changer",
+  "address": "Golf Island, Rukan Beach View, Jl. Pantai Indah Kapuk No.19 Blok A, RT.6/RW.2, Kecamatan Penjaringan, Jkt Utara, Daerah Khusus Ibukota Jakarta 14460",
+  "gmapUrl": null,
+  "phone": "0878-1711-9696",
+  "openingHours": "Mon/Tue/Thu: 10.00-21.00, Wed: 10.00-19.30, Sat: 10.00-20.30, Fri/Sun: 10.00-22.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1521/image/baiili-money-changer-pik-1777458463.webp"
+ },
+ {
+  "name": "Best Money Changer - PIK Avenue Mall",
+  "type": "Money Changer",
+  "address": "PIK Avenue, Penjaringan, Jl. Pantai Indah Utara 1 Lt.3, RT.6/RW.2, Kamal Muara, Kecamatan Penjaringan, Jkt Utara, Daerah Khusus Ibukota Jakarta 14470",
+  "gmapUrl": null,
+  "phone": "021-22570917",
+  "openingHours": "Everyday: 10.00-20.00",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1520/image/best-money-changer-pik-1777455969.webp"
+ },
+ {
+  "name": "Money Changer Dolarasia PIK",
+  "type": "Money Changer",
+  "address": "Ruko Cordoba Blok A No.8 Jl. Marina Raya Pantai Indah Kapuk, Rt.6/Rw.2, Kamal Muara, Kec, RT.6/RW.2, Kamal Muara, Penjaringan, North Jakarta City, Jakarta 14470",
+  "gmapUrl": null,
+  "phone": "021-22339745",
+  "openingHours": "Everyday: 08.00AM-10.00PM",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1519/image/money-changer-dolarasia-pik-1777456017.webp"
+ },
+ {
+  "name": "Good Health Clinic PIK",
+  "type": "Clinic",
+  "address": "Ruko garden house, Jl. Marina Raya Jl. Pantai Indah Kapuk No.26-27 blok A, RT.7/RW.2, Kamal Muara, Kecamatan Penjaringan, Jkt Utara, Daerah Khusus Ibukota Jakarta 14470",
+  "gmapUrl": null,
+  "phone": "081992169991",
+  "openingHours": "08.00AM-05.00PM (Clinic shift schedule)",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/places/1516/image/good-health-clinic-pik-1777456268.webp"
+ }
+]

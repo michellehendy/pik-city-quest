@@ -1,0 +1,82 @@
+[
+ {
+  "operator": "Transjakarta",
+  "code": "T31",
+  "route": "Blok M - PIK2",
+  "color": "#1800AD",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/transportation/transjakarta/t31-1787023243.webp",
+  "category": "Getting Here"
+ },
+ {
+  "operator": "Transjakarta",
+  "code": "1A",
+  "route": "Balai Kota - Pantai Maju",
+  "color": "#1800AD",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/transportation/transjakarta/1a-1786595555.webp",
+  "category": "Getting Here"
+ },
+ {
+  "operator": "Royal Trans",
+  "code": "01",
+  "route": "Shelter PIK2 - PIK Avenue (via NICE)",
+  "color": "#700055",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/transportation/royal-trans/rt1-1787733524.webp",
+  "category": "Getting Around"
+ },
+ {
+  "operator": "Royal Trans",
+  "code": "02",
+  "route": "PIK2 Millennials - PIK Avenue (via CBD PIK2)",
+  "color": "#700055",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/transportation/royal-trans/rt2-1787733531.webp",
+  "category": "Getting Around"
+ },
+ {
+  "operator": "Royal Trans",
+  "code": "05",
+  "route": "Pasadena - Shelter PIK2",
+  "color": "#700055",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/transportation/royal-trans/rt5-1787733734.webp",
+  "category": "Getting Around"
+ },
+ {
+  "operator": "Hub Connector",
+  "code": "HC1",
+  "route": "Juanda - PIK2",
+  "color": "#A30094",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/transportation/hub-connector/hc1-1787733658.webp",
+  "category": "Getting Here"
+ },
+ {
+  "operator": "Hub Connector",
+  "code": "HC2",
+  "route": "Dukuh Atas - GKT PIK2",
+  "color": "#A30094",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/transportation/hub-connector/hc2-1787733651.webp",
+  "category": "Getting Here"
+ },
+ {
+  "operator": "TREX",
+  "code": "TREX",
+  "route": "Sedayu City Kelapa Gading - Tokyo Riverside PIK2",
+  "color": "#FF5631",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/transportation/trex/trex-sc-pik2-1791209591.webp",
+  "category": "Getting Here"
+ },
+ {
+  "operator": "TREX",
+  "code": "03",
+  "route": "Tokyo Riverside Apt. - PIK Avenue (via IDD)",
+  "color": "#FF5631",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/transportation/trex/rt3-1791209650.webp",
+  "category": "Getting Around"
+ },
+ {
+  "operator": "TREX",
+  "code": "04",
+  "route": "Shelter PIK2 - PIK Avenue (via Rashuna Said)",
+  "color": "#FF5631",
+  "imageUrl": "https://storage.googleapis.com/gcs-pik-prod/pik-prod/transportation/trex/rt4-1791209717.webp",
+  "category": "Getting Around"
+ }
+]
