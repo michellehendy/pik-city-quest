@@ -1,0 +1,6 @@
+{
+  "env": {
+    "AUTH_SECRET": "pik-city-quest-prod-secret-8f7e6d5c4b3a2910",
+    "APP_URL": "https://your-live-url.vercel.app"
+  }
+}
